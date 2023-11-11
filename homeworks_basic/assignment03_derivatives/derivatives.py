@@ -68,7 +68,7 @@ class LossAndDerivatives:
         """
         Simply ignores the regularization
         """
-        return 0.
+        return 0.0
     
     @staticmethod
     def mse_derivative(X, Y, w):
@@ -87,7 +87,7 @@ class LossAndDerivatives:
         """
 
         # YOUR CODE HERE
-        return 2 * X.T.dot(X.dot(w) - Y) / len(Y)
+        return 2 * X.T.dot(X.dot(w) - Y) / np.prod(Y.shape)
 
     @staticmethod
     def mae_derivative(X, Y, w):
@@ -106,7 +106,7 @@ class LossAndDerivatives:
         """
 
         # YOUR CODE HERE
-        return X.T.dot(np.sign(X.dot(w) - Y)) / len(Y)
+        return X.T.dot(np.sign(X.dot(w) - Y)) / np.prod(Y.shape)
 
     @staticmethod
     def l2_reg_derivative(w):
